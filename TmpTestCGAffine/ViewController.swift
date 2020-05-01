@@ -45,9 +45,14 @@ class ViewController: UIViewController {
             vc.view.transform = CGAffineTransform(translationX: 50, y: 0)
         } else {
             isOpen = false
-            view.transform = CGAffineTransform(translationX: 0, y: 0)
-            vc.view.transform = CGAffineTransform(translationX: -50, y: 0)
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+                self.view.transform = .identity
+                self.vc.view.transform = .identity
+                
+            }, completion: nil)
+            
         }
     }
-
 }
